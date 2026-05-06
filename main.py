@@ -7,7 +7,7 @@ load_dotenv()  # Load .env file so GEMINI_API_KEY is available
 
 # We no longer need init_db here synchronously as it's async now,
 # but we can import the async one or perform startup logic if needed.
-from app.core.database import database
+from app.core.database import database, get_db
 from app.models.schema import ActivityLog
 
 # Rate Limiting
