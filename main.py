@@ -4,6 +4,8 @@ from motor.motor_asyncio import AsyncIOMotorDatabase
 import time
 from dotenv import load_dotenv
 load_dotenv()  # Load .env file so GEMINI_API_KEY is available
+import os
+print(f"DEBUG: MONGODB_URL starts with: {os.environ.get('MONGODB_URL', 'NOT FOUND')[:20]}...")
 
 # We no longer need init_db here synchronously as it's async now,
 # but we can import the async one or perform startup logic if needed.
