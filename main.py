@@ -1,5 +1,6 @@
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from motor.motor_asyncio import AsyncIOMotorDatabase
 import time
 from dotenv import load_dotenv
 load_dotenv()  # Load .env file so GEMINI_API_KEY is available
