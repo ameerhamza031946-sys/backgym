@@ -84,6 +84,15 @@ def read_root(request: Request):
 def health_check(request: Request):
     return {"status": "healthy"}
 
+@app.get("/debug-db")
+async def debug_db(db: AsyncIOMotorDatabase = Depends(get_db)):
+    try:
+        # Ping the database
+        await db.command("ping")
+        return {"status": "connected", "database": db.name}
+    except Exception as e:
+        return {"status": "error", "message": str(e)}
+
 from app.api import trainer, nutrition, risk, users, auth
 
 app.include_router(trainer.router, prefix="/api/trainer", tags=["Trainer"])
