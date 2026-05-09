@@ -28,8 +28,14 @@ app.add_middleware(SlowAPIMiddleware)
 
 @app.on_event("startup")
 async def on_startup():
-    # If we want any automated check on startup, we do it here.
-    pass
+    print("DEBUG: Checking database connection...")
+    try:
+        # The ping command is cheap and does not require auth
+        await database.command("ping")
+        print("DEBUG: Database connection successful!")
+    except Exception as e:
+        print(f"DEBUG: Database connection failed: {e}")
+        print("WARNING: Application starting without database connection. Some features may not work.")
 
 # Configure strict CORS for frontend access
 origins = [

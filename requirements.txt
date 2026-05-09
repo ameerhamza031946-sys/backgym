@@ -12,3 +12,4 @@ pydantic-settings
 email-validator
 dnspython
 python-multipart
+certifi
