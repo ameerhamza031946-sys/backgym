@@ -1,6 +1,8 @@
 fastapi
 uvicorn
-motor
+motor==3.3.2
+pymongo==4.6.3
+dnspython==2.6.1
 python-dotenv
 slowapi
 python-jose[cryptography]
@@ -10,6 +12,5 @@ gunicorn
 pydantic
 pydantic-settings
 email-validator
-dnspython
 python-multipart
 certifi
